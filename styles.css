@@ -1,0 +1,167 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364, #1a1a2e);
+    background-size: 300% 300%;
+    animation: darkWindowsBg 12s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Dark, smooth gradient animation */
+@keyframes darkWindowsBg {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 100%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container Styling */
+.container {
+    text-align: center;
+    position: relative;
+}
+
+/* Title Styling */
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+/* Popup Question Styling */
+.popup {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-out;
+}
+
+.question {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Button Styling */
+.button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6b6b, #f94d6a);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #f94d6a, #ff6b6b);
+}
+
+/* Heart Animation */
+.heart-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.heart {
+    width: 100px;
+    height: 90px;
+    background: red;
+    position: relative;
+    animation: pulse 1s infinite;
+    transform: rotate(-45deg);
+    margin-bottom: 1rem;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    width: 100px;
+    height: 90px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    left: 50px;
+    top: 0;
+}
+
+.thanks-note {
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Random hate emoji styling */
+.hate-emoji {
+    position: absolute;
+    font-size: 2rem;
+    color: #f94d6a;
+    animation: floatUp 2s ease-out forwards;
+    z-index: 1000;
+}
+
+/* Floating effect for emojis */
+@keyframes floatUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+}

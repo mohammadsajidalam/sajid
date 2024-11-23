@@ -9,6 +9,10 @@ const container = document.querySelector('.container');
 // Array of hate emojis
 const hateEmojis = ['😡', '🤬', '💔', '👎', '😤', '😠', '😭', '😒'];
 
+// Audio elements for sound effects
+const yesSound = new Audio('yes.mp3');
+const noSound = new Audio('no.mp3');
+
 // Handle "NO" Button
 noButton.addEventListener('click', () => {
     // Increment click count
@@ -29,6 +33,9 @@ noButton.addEventListener('click', () => {
     emoji.style.top = `${randomY}px`;
     container.appendChild(emoji);
 
+    // Play "NO" sound
+    noSound.play();
+
     // Remove emoji after animation
     setTimeout(() => {
         container.removeChild(emoji);
@@ -36,7 +43,10 @@ noButton.addEventListener('click', () => {
 });
 
 // Handle "YES" Button
-yesButton.addEventListener('click', showHeartAnimation);
+yesButton.addEventListener('click', () => {
+    yesSound.play();  // Play the "YES" sound
+    showHeartAnimation();
+});
 
 function showHeartAnimation() {
     heartContainer.style.display = 'flex';
